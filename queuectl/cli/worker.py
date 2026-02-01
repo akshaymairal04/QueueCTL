@@ -6,8 +6,8 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from queuectl.core.worker import run_worker
-from queuectl.core.process_manager import start_workers, stop_workers, list_workers
+from QueueCLI.core.worker import run_worker
+from QueueCLI.core.process_manager import start_workers, stop_workers, list_workers
 
 console = Console()
 

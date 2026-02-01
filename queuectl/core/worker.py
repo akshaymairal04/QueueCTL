@@ -10,14 +10,14 @@ import time
 from typing import Optional
 from pathlib import Path
 
-from queuectl.storage.database import (
+from QueueCLI.storage.database import (
     fetch_next_job,
     update_job_state,
     init_db,
 )
-from queuectl.core.executor import execute_command
-from queuectl.core.retry import compute_retry_decision
-from queuectl.core.models import Job
+from QueueCLI.core.executor import execute_command
+from QueueCLI.core.retry import compute_retry_decision
+from QueueCLI.core.models import Job
 
 
 # Global flag for graceful shutdown

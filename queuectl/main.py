@@ -7,7 +7,7 @@ Wire all CLI commands under a single `queuectl` command.
 import typer
 from rich.console import Console
 
-from queuectl.cli import enqueue, worker, status, jobs, dlq, config
+from QueueCLI.cli import enqueue, worker, status, jobs, dlq, config
 
 app = typer.Typer(
     name="queuectl",

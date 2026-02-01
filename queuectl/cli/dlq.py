@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.table import Table
 from datetime import datetime
 
-from queuectl.storage.database import list_jobs_by_state, get_job, update_job_state, init_db
+from QueueCLI.storage.database import list_jobs_by_state, get_job, update_job_state, init_db
 
 console = Console()
 
@@ -98,7 +98,7 @@ def clear_dlq(
             raise typer.Exit(0)
 
     # Permanently remove jobs from DLQ
-    from queuectl.storage.database import delete_job
+    from QueueCLI.storage.database import delete_job
     
     deleted_count = 0
     for job in jobs:

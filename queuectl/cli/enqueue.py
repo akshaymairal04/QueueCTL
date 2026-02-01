@@ -6,7 +6,7 @@ import json
 import typer
 from rich.console import Console
 
-from queuectl.storage.database import enqueue_job, get_job, init_db
+from QueueCLI.storage.database import enqueue_job, get_job, init_db
 
 console = Console()
 
@@ -75,7 +75,7 @@ def enqueue(
         # If --wait flag is set, poll until job completes
         if wait:
             import time
-            from queuectl.core.executor import execute_command
+            from QueueCLI.core.executor import execute_command
             
             console.print("[dim]Waiting for job to complete...[/dim]")
             

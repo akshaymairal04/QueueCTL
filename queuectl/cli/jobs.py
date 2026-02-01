@@ -6,7 +6,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from queuectl.storage.database import list_jobs_by_state, init_db
+from QueueCLI.storage.database import list_jobs_by_state, init_db
 
 console = Console()
 

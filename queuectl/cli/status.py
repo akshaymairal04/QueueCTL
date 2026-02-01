@@ -8,8 +8,8 @@ from rich.table import Table
 from rich.panel import Panel
 from rich.columns import Columns
 
-from queuectl.storage.database import get_job, list_jobs_by_state, init_db
-from queuectl.core.process_manager import list_workers
+from QueueCLI.storage.database import get_job, list_jobs_by_state, init_db
+from QueueCLI.core.process_manager import list_workers
 
 console = Console()
 
