@@ -1,0 +1,70 @@
+# QUEUECTL MANUAL COMMANDS CHEATSHEET
+# ========================================================
+# Run these commands from: E:\DA\QueueCTL\queuectl
+# Make sure your virtual environment is active.
+
+# --- 1. JOB MANAGEMENT ---
+
+# Enqueue a simple job
+python -m queuectl.main enqueue --command "echo 'Hello World'"
+
+# Enqueue a job with custom ID
+python -m queuectl.main enqueue --command "echo 'Custom ID Job'" --id "my-job-001"
+
+# Enqueue a failing job (to test retries)
+python -m queuectl.main enqueue --command "exit 1" --retries 2
+
+# List all pending jobs
+python -m queuectl.main list --state pending
+
+# List all jobs (limit 50)
+python -m queuectl.main list --state all --limit 50
+
+# Check status of a specific job
+python -m queuectl.main status my-job-001
+
+
+# --- 2. WORKER MANAGEMENT ---
+
+# Start 2 workers in the background
+python -m queuectl.main worker start --count 2
+
+# List running workers
+python -m queuectl.main worker list
+
+# Start a worker in foreground (blocks terminal, good for debugging)
+# python -m queuectl.main worker start --foreground
+
+# Stop all workers
+python -m queuectl.main worker stop
+
+
+# --- 3. DEAD LETTER QUEUE (DLQ) ---
+
+# List failed jobs (after retries are exhausted)
+python -m queuectl.main dlq list
+
+# Retry a failed job (moves it back to pending)
+# Replace JOB_ID with an actual ID from 'dlq list'
+python -m queuectl.main dlq retry JOB_ID
+
+# Clear all DLQ jobs
+python -m queuectl.main dlq clear
+
+
+# --- 4. CONFIGURATION ---
+
+# Set max retries
+python -m queuectl.main config set max-retries 5
+
+# Get a config value
+python -m queuectl.main config get max-retries
+
+# List all config
+python -m queuectl.main config list
+
+
+# --- 5. SYSTEM STATUS ---
+
+# View overall system status (job counts + active workers)
+python -m queuectl.main status

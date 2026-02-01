@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "queuectl"
+version = "0.1.0"
+description = "A production-grade CLI for background job queue management"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "typer[all]",
+    "rich",
+    "python-dateutil",
+]
+
+[project.scripts]
+queuectl = "queuectl.main:app"
